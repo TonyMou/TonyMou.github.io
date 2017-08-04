@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="deep learning," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="我的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tony&#39;s blog">
-<meta property="og:url" content="http://tonyliu.cc/archives/2016/03/index.html">
+<meta name="description" content="摘要: SSD算法论文解读。">
+<meta name="keywords" content="deep learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSD算法解析">
+<meta property="og:url" content="http://tonyliu.cc/2017/05/10/SSD算法解析/index.html">
 <meta property="og:site_name" content="Tony&#39;s blog">
-<meta property="og:description" content="我的技术博客">
+<meta property="og:description" content="摘要: SSD算法论文解读。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-04T03:47:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tony&#39;s blog">
-<meta name="twitter:description" content="我的技术博客">
+<meta name="twitter:title" content="SSD算法解析">
+<meta name="twitter:description" content="摘要: SSD算法论文解读。">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://tonyliu.cc/archives/2016/03/"/>
+  <link rel="canonical" href="http://tonyliu.cc/2017/05/10/SSD算法解析/"/>
 
 
 
 
 
-  <title>Archive | Tony's blog</title>
+  <title>SSD算法解析 | Tony's blog</title>
   
 
 
@@ -163,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,74 +249,196 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 5 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tonyliu.cc/2017/05/10/SSD算法解析/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tony's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/03/05/删除默认storyboard的方法/" itemprop="url">
-              
-                <span itemprop="name">Xcode删除默认storyboard</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">SSD算法解析</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-05T00:00:00+08:00"
-              content="2016-03-05" >
-          03-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T00:00:00+08:00">
+                2017-05-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日志/二级目录/" itemprop="url" rel="index">
+                    <span itemprop="name">二级目录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>摘要:</p>
+<p>SSD算法论文解读。<br><a id="more"></a><br>正文:</p>
+<h3 id="SSD算法解析"><a href="#SSD算法解析" class="headerlink" title="SSD算法解析"></a>SSD算法解析</h3><p>SSD算法是一种直接预测bounding box的坐标和类别的object detection算法，没有生成proposal的过程。针对不同大小的物体检测，传统的做法是将图像转换成不同的大小，然后分别处理，最后将结果综合起来。</p>
+<p>算法的主要网络结构是VGG16，将两个全连接层改成卷积层再增加4个卷积层构造网络结构。对于其中5个不同的卷积层的输出分别用两个3x3的卷积核进行卷积，</p>
+<p>一个输出分类用的confidence，每个default box生成21个confidence（这是针对VOC数据集包含20个object类别而言的）；</p>
+<p>另一个输出回归用的localization，每个default box生成4个坐标值(x, y, w, h)。</p>
+<p>另外这5个卷积层还经过prior box层生成default box（生成坐标）。</p>
+<p>这样5个卷积层中的每一层的default box的数量是给定的。最后将前面三个计算结果分别合并然后传递给loss层。</p>
+<p>算法结果：</p>
+<p>对于300x300的输入，SSD可以在VOC2007test上有74.3%的mAP，速度是59FPS（Titan X）；对于512x512的输入，SSD可以有76.9%的mAP。</p>
+<p>Faster RCNN是73.2%的mAP和7FPS，YOLO是63.4%的mAP和45FPS。</p>
+<p>作者认为自己的算法之所以在速度上有明显的提升，得益于去掉了bounding box proposal 以及后续的pixel或feature的resampling步骤。</p>
+<p>文章的一个核心是作者同时采用lower和upper的feature maps做检测。有大小8x8和4x4两种大小的feature maps，而feature map cell就是其中的每一个小格。另外有一个概念：default box，是指在feature map的每个小格（cell）上都有一系列固定大小的box。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/10/mac安装caffe/" rel="next" title="MAC下安装caffe">
+                <i class="fa fa-chevron-left"></i> MAC下安装caffe
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/04/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -322,6 +446,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -342,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -405,6 +542,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSD算法解析"><span class="nav-number">1.</span> <span class="nav-text">SSD算法解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -518,11 +671,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
