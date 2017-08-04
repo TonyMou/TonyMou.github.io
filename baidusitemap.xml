@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://tonyliu.cc/2000/10/10/hello-world/</loc>
+    <lastmod>2017-08-04T04:12:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2000-10-09T16:00:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://tonyliu.cc/2017/05/10/SSD%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2017-08-04T04:03:35.000Z</lastmod>
     <data>
@@ -68,44 +83,6 @@
              
               <breadCrumb title="二级目录" url="http://tonyliu.cc/categories/%E6%97%A5%E5%BF%97/%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tonyliu.cc/2017/08/04/hello/</loc>
-    <lastmod>2017-08-04T03:02:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>hello</title>
-        <pubTime>2017-08-04T03:00:37.000Z</pubTime>
-        
-        <tag>hello</tag>
-         
-         
-           
-             
-              <breadCrumb title="日志" url="http://tonyliu.cc/categories/%E6%97%A5%E5%BF%97/"/>
-          
-             
-              <breadCrumb title="二级目录" url="http://tonyliu.cc/categories/%E6%97%A5%E5%BF%97/%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tonyliu.cc/2017/08/04/hello-world/</loc>
-    <lastmod>2017-08-04T01:20:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-08-04T01:20:14.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
