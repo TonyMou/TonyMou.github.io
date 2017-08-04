@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hello," />
+  <meta name="keywords" content="deep learning," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="摘要:">
-<meta name="keywords" content="hello">
+<meta name="description" content="摘要: 记录下在mac下安装caffe的过程。">
+<meta name="keywords" content="deep learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello">
-<meta property="og:url" content="http://tonyliu.cc/2017/08/04/hello/index.html">
+<meta property="og:title" content="MAC下安装caffe">
+<meta property="og:url" content="http://tonyliu.cc/2016/12/10/mac安装caffe/index.html">
 <meta property="og:site_name" content="Tony&#39;s blog">
-<meta property="og:description" content="摘要:">
+<meta property="og:description" content="摘要: 记录下在mac下安装caffe的过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-04T03:02:42.000Z">
+<meta property="og:updated_time" content="2017-08-04T03:26:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello">
-<meta name="twitter:description" content="摘要:">
+<meta name="twitter:title" content="MAC下安装caffe">
+<meta name="twitter:description" content="摘要: 记录下在mac下安装caffe的过程。">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://tonyliu.cc/2017/08/04/hello/"/>
+  <link rel="canonical" href="http://tonyliu.cc/2016/12/10/mac安装caffe/"/>
 
 
 
 
 
-  <title>hello | Tony's blog</title>
+  <title>MAC下安装caffe | Tony's blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tonyliu.cc/2017/08/04/hello/">
+    <link itemprop="mainEntityOfPage" href="http://tonyliu.cc/2016/12/10/mac安装caffe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hello</h1>
+          <h1 class="post-title" itemprop="name headline">MAC下安装caffe</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-04T11:00:37+08:00">
-                2017-08-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T00:00:00+08:00">
+                2016-12-10
               </time>
             
 
@@ -363,8 +363,44 @@
       
 
       
-        <p>摘要:<br><a id="more"></a><br>正文:</p>
+        <p>摘要:</p>
+<p>记录下在mac下安装caffe的过程。<br><a id="more"></a><br>正文:</p>
+<h5 id="下载ssd版本的caffe"><a href="#下载ssd版本的caffe" class="headerlink" title="下载ssd版本的caffe"></a>下载ssd版本的caffe</h5><p>从github上clone下源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/weiliu89/caffe.git</div><div class="line">cd caffe</div><div class="line">git checkout ssd</div></pre></td></tr></table></figure></p>
+<h5 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h5><p>由于caffe依赖多个包，所以需要提前安装好包管理工具，mac下推荐homebrew。</p>
+<ul>
+<li><p>Homebrew 安装</p>
+<p>  终端执行命令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>在安装caffe之前还需安装好python（我的是2.7版本）和XCode。
+为了以后python接口方便，推荐安装Anaconda
+</code></pre><h5 id="安装Caffe-无GPU版本"><a href="#安装Caffe-无GPU版本" class="headerlink" title="安装Caffe 无GPU版本"></a>安装Caffe 无GPU版本</h5><ul>
+<li>安装依赖包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">brew install -vd snappy leveldb gflags glog szip lmdb</div><div class="line"># need the homebrew science source for OpenCV and hdf5</div><div class="line">brew tap homebrew/science</div><div class="line">#对于Anaconda Python在安装opencv时需要做如下修改</div><div class="line">brew edit opencv</div><div class="line">_________</div><div class="line"># 将如下两行</div><div class="line">args &lt;&lt; &quot;-DPYTHON_LIBRARY=#&#123;py_lib&#125;/libpython2.7.#&#123;dylib&#125;&quot;</div><div class="line">args &lt;&lt; &quot;-DPYTHON_INCLUDE_DIR=#&#123;py_prefix&#125;/include/python2.7&quot;</div><div class="line"># 修改为：</div><div class="line">args &lt;&lt; &quot;-DPYTHON_LIBRARY=#&#123;py_prefix&#125;/lib/libpython2.7.dylib&quot;</div><div class="line">args &lt;&lt; &quot;-DPYTHON_INCLUDE_DIR=#&#123;py_prefix&#125;/include/python2.7&quot;</div><div class="line">________</div><div class="line"># 接着执行如下命令</div><div class="line">brew install opencv</div><div class="line">brew install openblas</div><div class="line">#切换到$CAFFE_ROOT/python路径下执行如下命令：</div><div class="line">for req in $(cat requirements.txt); do pip install $req; done</div></pre></td></tr></table></figure>
+<ul>
+<li><p>切换到caffe-master主目录下面，将Makefile.config.example 复制为Makefile.config，并做以下修改：</p>
+<ol>
+<li>将第8行的’# CPU_ONLY := 1’改为’CPU_ONLY := 1’</li>
+<li>将第46行的’BLAS := atlas’改为‘BLAS：= open’</li>
+<li>将Anaconda python相应行前面的’#’去掉</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>编译安装</p>
+<p>  切换到caffe主目录下，在终端执行：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make all -j4</div><div class="line">make test -j4</div><div class="line">make runtest -j4</div><div class="line">make pycaffe</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>如果要调用caffe的python接口，需要将$CAFFE_ROOT/python路径加入到PYTHONPATH中:
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PYTHONPATH=/your/path/to/caffe-master/python:$PYTHONPATH</div></pre></td></tr></table></figure>
+
+
+安装成功！
+</code></pre>
       
     </div>
     
@@ -381,7 +417,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hello/" rel="tag"># hello</a>
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
           
         </div>
       
@@ -394,15 +430,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/04/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/04/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -454,8 +490,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -517,6 +562,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#下载ssd版本的caffe"><span class="nav-number">1.</span> <span class="nav-text">下载ssd版本的caffe</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装前准备"><span class="nav-number">2.</span> <span class="nav-text">安装前准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Caffe-无GPU版本"><span class="nav-number">3.</span> <span class="nav-text">安装Caffe 无GPU版本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
